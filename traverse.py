@@ -2,7 +2,7 @@ import os
 from os.path import abspath,join,getsize
 
 i=0
-for top_dir,directories,files in os.walk('C:\Users\user\Documents\GitHub'):
+for top_dir,directories,files in os.walk("."):
     for _file in files:
         if i<20:
             fullpath=abspath(join(top_dir,_file))
@@ -11,10 +11,10 @@ for top_dir,directories,files in os.walk('C:\Users\user\Documents\GitHub'):
 
 #extract file size>10Kb
 sizes=[]
-for top_dir,directories,files in os.walk('C:\Users\user\Documents\GitHub'):
+for top_dir,directories,files in os.walk("."):
     for _file in files:
         fullpath=abspath(join(top_dir,_file))
         size=getsize(fullpath)
-        if size>'10Kb':
-            sizes.append(fullpath, ' ', size, '\n')
+        if size>10:
+            sizes.append(join(fullpath, ' ', str(size), '\n'))
 print(sizes)
